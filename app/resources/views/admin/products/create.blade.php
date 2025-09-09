@@ -1,0 +1,19 @@
+<x-app-layout>
+    <x-slot name="header"><h2 class="font-semibold text-xl">Nuevo producto</h2></x-slot>
+    <div class="p-6 max-w-2xl">
+        <form method="POST" action="{{ route('products.store') }}" class="space-y-3">
+            @csrf
+            <label class="block">Nombre<input name="name" class="w-full border rounded p-2" /></label>
+            <label class="block">Slug<input name="slug" class="w-full border rounded p-2" /></label>
+            <label class="block">Precio<input name="price" type="number" step="0.01" class="w-full border rounded p-2" /></label>
+            <label class="block">Descripción<textarea name="description" class="w-full border rounded p-2"></textarea></label>
+            <label class="block">Imagen URL<input name="image_url" class="w-full border rounded p-2" /></label>
+            <label class="block">Stock<input name="stock" type="number" class="w-full border rounded p-2" /></label>
+            <label><input type="checkbox" name="is_made_to_order" value="1"> A pedido</label>
+            <label class="block">Lead time (horas)<input name="lead_time_hours" type="number" class="w-full border rounded p-2" value="48" /></label>
+            <label><input type="checkbox" name="active" value="1" checked> Activo</label>
+            <x-primary-button>Guardar</x-primary-button>
+        </form>
+    </div>
+</x-app-layout>
+
